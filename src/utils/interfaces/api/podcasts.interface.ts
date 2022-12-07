@@ -1,5 +1,7 @@
 export interface IPodcasts {
-  entry: IPodcast[];
+  feed: {
+    entry: IPodcast[];
+  };
 }
 
 interface IPodcast {

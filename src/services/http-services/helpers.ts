@@ -1,4 +1,5 @@
 import { AxiosInstance } from 'axios';
+import { API_URL } from 'utils/constants/api.constants';
 
 export type ServiceOptions = {
   path: string;
@@ -12,22 +13,14 @@ export interface IError {
   statusCode: number | undefined;
 }
 
-const apiUrl: string = `https://itunes.apple.com`;
-
-const defaultHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Content-Type': 'application/json',
-  Accept: 'application/json',
-};
+const defaultHeaders = {};
 
 /**
  * @name buildPath
  * @description create the api path
  */
 const buildPath = (options: ServiceOptions): string => {
-  return apiUrl + options.path;
+  return API_URL + options.path;
 };
 
 /**
@@ -41,4 +34,4 @@ const generateHeaders = async (axiosInstance: AxiosInstance) => {
   }
 };
 
-export { defaultHeaders, buildPath, generateHeaders, apiUrl };
+export { defaultHeaders, buildPath, generateHeaders };

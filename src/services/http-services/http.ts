@@ -1,16 +1,14 @@
-import axios from 'axios';
-import { defaultHeaders, buildPath, ServiceOptions, generateHeaders, apiUrl } from './helpers';
-import { generateResponseInterceptors } from './interceptors';
+import axios, { AxiosResponse } from 'axios';
+import { API_URL } from 'utils/constants/api.constants';
+import { defaultHeaders, buildPath, ServiceOptions, generateHeaders } from './helpers';
 
 const httpServices = () => {
   const httpInstance = axios.create({
-    baseURL: apiUrl,
+    baseURL: API_URL,
     headers: defaultHeaders,
-    withCredentials: true,
+    // withCredentials: true,
     timeout: 0,
   });
-
-  generateResponseInterceptors(httpInstance);
 
   /**
    * @name GET
@@ -24,7 +22,10 @@ const httpServices = () => {
 
     return httpInstance
       .get(path)
-      .then(response => response)
+      .then(response => {
+        const _response = response as AxiosResponse;
+        return _response.data;
+      })
       .catch(error => {
         throw error.response.data;
       });
@@ -43,7 +44,10 @@ const httpServices = () => {
 
     return httpInstance
       .post(path, options.data)
-      .then(response => response)
+      .then(response => {
+        const _response = response as AxiosResponse;
+        return _response.data;
+      })
       .catch(error => {
         throw error.response.data;
       });
@@ -62,7 +66,10 @@ const httpServices = () => {
 
     return httpInstance
       .put(path, options.data)
-      .then(response => response)
+      .then(response => {
+        const _response = response as AxiosResponse;
+        return _response.data;
+      })
       .catch(error => {
         throw error.response.data;
       });
@@ -80,7 +87,10 @@ const httpServices = () => {
 
     return httpInstance
       .delete(path)
-      .then(response => response)
+      .then(response => {
+        const _response = response as AxiosResponse;
+        return _response.data;
+      })
       .catch(error => {
         throw error.response.data;
       });
