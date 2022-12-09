@@ -8,4 +8,6 @@ export const Colors = {
 
   blue600: '#3777B2',
   blue400: '#5883B4',
+
+  white: '#FFFFFF'
 };

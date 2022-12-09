@@ -31,12 +31,21 @@ const Typography: React.FC<TypographyProps> = props => {
     size = null,
     weight = null,
     color = Colors.gray800,
+    dataTestId = 'typography-component',
     style,
     ...otherProps
   } = props;
   const Text = Typographys[type];
   return (
-    <Text type={type} size={size} weight={weight} color={color} style={style} {...otherProps}>
+    <Text
+      data-testId={dataTestId}
+      type={type}
+      size={size}
+      weight={weight}
+      color={color}
+      style={style}
+      {...otherProps}
+    >
       {children}
     </Text>
   );
