@@ -3,7 +3,7 @@ export interface IPodcastDetails {
   resultCount: number;
 }
 
-interface IPodcastDetail {
+export interface IPodcastDetail {
   wrapperType: string;
   kind: string;
   artistId: number;

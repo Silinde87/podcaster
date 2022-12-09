@@ -1,15 +1,18 @@
+import { useContext, useEffect, useState } from 'react';
+import { PodcastContext } from 'providers/PodcastProvider';
+import { useNavigate } from 'react-router-dom';
 import CounterTag from 'components/atoms/CounterTag';
 import SearchBar from 'components/atoms/SearchBar';
 import HomeCard from 'components/molecules/Cards/HomeCard';
 import Layout from 'components/molecules/Layout';
-import { PodcastContext } from 'providers/PodcastProvider';
-import { useContext, useEffect, useState } from 'react';
 import { IPodcast } from 'utils/interfaces/api/podcasts.interface';
 import { HomeWrapper, PodcastsContainer, SearchBarContainer } from './Home.styled';
+import { ROUTES } from 'utils/constants/routes.constants';
 
 const Home: React.FC = () => {
   const { podcasts } = useContext(PodcastContext);
   const [filteredPodcasts, setFilteredPodcasts] = useState<IPodcast[]>([] as IPodcast[]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setFilteredPodcasts(podcasts);
@@ -38,7 +41,9 @@ const Home: React.FC = () => {
               imageUrl={podcast['im:image'][2].label}
               title={podcast['im:name'].label}
               author={podcast['im:artist'].label}
-              onClick={() => console.log('')}
+              onClick={() =>
+                navigate(ROUTES.PODCAST_DETAIL_WITH_PARAM(podcast.id.attributes['im:id']))
+              }
             />
           ))}
         </PodcastsContainer>

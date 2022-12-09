@@ -22,7 +22,7 @@ const HomeCardTextWrapper = styled.div`
   padding: 50px 8px 16px 8px;
 `;
 
-const HomeCardContainer = styled.div`
+const HomeCardContainer = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,3 +1,4 @@
 import Home from './Home';
+import PodcastDetail from './PodcastDetail';
 
-export { Home };
+export { Home, PodcastDetail };
