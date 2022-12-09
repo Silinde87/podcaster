@@ -1,13 +1,11 @@
 import Typography, { TypographyTypes } from 'components/atoms/Typography';
 import HomeCard from 'components/molecules/Cards/HomeCard';
-import { Colors } from 'theme/Colors';
+import Header from 'components/molecules/Header';
 
 function App() {
   return (
     <div style={{ paddingLeft: 20 }}>
-      <Typography type={TypographyTypes.H1} color={Colors.blue600}>
-        Pocaster Home
-      </Typography>
+      <Header loading={true} />
       <HomeCard
         imageUrl="https://wallpaperaccess.com/full/317501.jpg"
         title="All songs considered"

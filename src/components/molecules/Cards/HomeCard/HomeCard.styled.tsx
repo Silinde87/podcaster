@@ -7,7 +7,7 @@ const HomeCardImage = styled.img`
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: -50px;
+  margin-bottom: -40px;
   z-index: 2;
   cursor: pointer;
 `;
@@ -19,8 +19,7 @@ const HomeCardTextWrapper = styled.div`
   border-radius: 8px;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  padding: 0 8px;
-  padding-top: 40px;
+  padding: 50px 8px 16px 8px;
 `;
 
 const HomeCardContainer = styled.div`
@@ -34,6 +33,7 @@ const HomeCardTitle = styled(Typography)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-bottom: 8px;
 `;
 
 export { HomeCardImage, HomeCardTextWrapper, HomeCardContainer, HomeCardTitle };
