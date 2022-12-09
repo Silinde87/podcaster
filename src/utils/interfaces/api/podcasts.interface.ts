@@ -4,7 +4,7 @@ export interface IPodcasts {
   };
 }
 
-interface IPodcast {
+export interface IPodcast {
   'im:name': IPodcastName;
   'im:image': IPodcastImage[];
   summary: IPodcastSummary;

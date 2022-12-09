@@ -1,9 +1,9 @@
 export interface IPodcastDetails {
-  results: IPodcast[];
+  results: IPodcastDetail[];
   resultCount: number;
 }
 
-interface IPodcast {
+interface IPodcastDetail {
   wrapperType: string;
   kind: string;
   artistId: number;
