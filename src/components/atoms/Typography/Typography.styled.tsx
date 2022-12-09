@@ -68,7 +68,7 @@ const getFontHeight = (size: string): string => {
   const fontHeights: TypographyOptions = {
     [Sizes.XS]: '16px',
     [Sizes.S]: '20px',
-    [Sizes.M]: '28px',
+    [Sizes.M]: '32px',
     [Sizes.L]: '36px',
     [Sizes.XL]: '42px',
   };

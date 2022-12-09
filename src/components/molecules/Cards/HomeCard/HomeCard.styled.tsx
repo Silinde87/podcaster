@@ -26,7 +26,7 @@ const HomeCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 280px;
 `;
 
 const HomeCardTitle = styled(Typography)`
@@ -36,4 +36,10 @@ const HomeCardTitle = styled(Typography)`
   padding-bottom: 8px;
 `;
 
-export { HomeCardImage, HomeCardTextWrapper, HomeCardContainer, HomeCardTitle };
+const HomeCardAuthor = styled(Typography)`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export { HomeCardImage, HomeCardTextWrapper, HomeCardContainer, HomeCardTitle, HomeCardAuthor };

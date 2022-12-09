@@ -4,9 +4,9 @@ import Typography, { TypographyTypes } from '../Typography';
 import { CounterTagWrapper } from './CounterTag.styled';
 import { CounterTagProps } from './CounterTag.types';
 
-const CounterTag: React.FC<CounterTagProps> = ({ count }) => {
+const CounterTag: React.FC<CounterTagProps> = ({ count, style }) => {
   return (
-    <CounterTagWrapper>
+    <CounterTagWrapper style={style}>
       <Typography color={Colors.white} type={TypographyTypes.H3}>
         {count}
       </Typography>
