@@ -15,12 +15,22 @@ const Home: React.FC = () => {
     setFilteredPodcasts(podcasts);
   }, [podcasts]);
 
+  const handleOnChangeSearchBar = (value: string) => {
+    const loweredCaseValue = value.toLowerCase();
+    const _podcasts = podcasts.filter(
+      podcast =>
+        podcast['im:name'].label.toLowerCase().includes(loweredCaseValue) ||
+        podcast['im:artist'].label.toLowerCase().includes(loweredCaseValue),
+    );
+    setFilteredPodcasts(_podcasts);
+  };
+
   return (
     <Layout>
       <HomeWrapper>
         <SearchBarContainer>
           <CounterTag count={filteredPodcasts.length} style={{ marginRight: 16 }} />
-          <SearchBar placeholder="Filter podcasts..." onChange={value => console.log(value)} />
+          <SearchBar placeholder="Filter podcasts..." onChange={handleOnChangeSearchBar} />
         </SearchBarContainer>
         <PodcastsContainer>
           {filteredPodcasts.map(podcast => (
