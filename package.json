@@ -7,7 +7,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "clean": "npx rimraf dist",
-    "test": "jest"
+    "test:unit": "jest --watch",
+    "test:unit:ci": "jest",
+    "test:unit:coverage": "jest --silent --watchAll=false --coverage"
   },
   "dependencies": {
     "axios": "0.27.2",
