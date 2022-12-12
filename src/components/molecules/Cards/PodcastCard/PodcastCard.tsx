@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import ReactHtmlParser from 'react-html-parser';
 import { PodcastContext } from 'providers/PodcastProvider';
 import { Colors } from 'theme/Colors';
 import {
   DescriptionWrapper,
-  ParsedDescriptionText,
   PodcastCardContainer,
   PodcastCardImage,
   TitleWrapper,
@@ -34,7 +32,7 @@ const PodcastCard: React.FC<PodcastCardProps> = ({ podcastDetails }) => {
       </TitleWrapper>
       <DescriptionWrapper>
         <Typography color={Colors.gray900}>Description:</Typography>
-        <ParsedDescriptionText>{ReactHtmlParser(description)}</ParsedDescriptionText>
+        <Typography style={{ fontStyle: 'italic' }}>{description}</Typography>
       </DescriptionWrapper>
     </PodcastCardContainer>
   );

@@ -27,16 +27,4 @@ const DescriptionWrapper = styled.div`
   border-top: 1px solid ${Colors.gray600};
 `;
 
-const ParsedDescriptionText = styled.div`
-  color: ${Colors.gray800};
-  font-size: 16px;
-  margin-top: 4px;
-`;
-
-export {
-  PodcastCardContainer,
-  PodcastCardImage,
-  TitleWrapper,
-  DescriptionWrapper,
-  ParsedDescriptionText,
-};
+export { PodcastCardContainer, PodcastCardImage, TitleWrapper, DescriptionWrapper };
