@@ -1,55 +1,94 @@
-# ⚡️ Varsarr
+# Phone Catalog by Pau Rodríguez
 
-[![CodeQL workflow](https://github.com/altmshfkgudtjr/varsarr/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/wtchnm/Vitamin/actions/workflows/codeql-analysis.yml/badge.svg) [![Total alerts](https://img.shields.io/lgtm/alerts/g/altmshfkgudtjr/varsarr.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/altmshfkgudtjr/varsarr/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/altmshfkgudtjr/varsarr.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/altmshfkgudtjr/varsarr/context:javascript) [![code style: prettier](https://camo.githubusercontent.com/48a41f43affa2e6253d6a48e0ee662ec53ce13c46442ac815e81d36b6e6b434d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64655f7374796c652d70726574746965722d6666363962342e737667)](https://github.com/prettier/prettier) [![license](https://camo.githubusercontent.com/45b4ffbd594af47fe09a3432f9f8e122c6518aa6352b4ce453a1a2563da2905c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d677265656e2e737667)](https://github.com/wtchnm/Vitamin/blob/main/LICENSE)
+![](https://img.shields.io/github/deployments/Silinde87/phone-catalog/production?label=Vercel&logo=Vercel&logoColor=white)
+![](https://img.shields.io/w3c-validation/html?targetUrl=https://phone-catalog-sandy.vercel.app/)
 
-Speedy Vite Boilerplate.
+## How it looks
 
-![Varsarr](https://user-images.githubusercontent.com/47492535/184534122-93699988-ff25-4ba4-8816-22bcc80324c8.png)
+🔗 [Live Demo](https://podcaster-five.vercel.app/)
 
-- [Vite](https://vitejs.dev)
-- [React](https://reactjs.org)
-- [Axios](https://axios-http.com)
-- [Styled-Components](https://styled-components.com)
+This React application is a catalog where you can find a collection of 100 podcasts.
+These podcasts can be visualized thanks to [Itunes Search API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1).
 
-<br />
+You can search for podcasts through the search engine.
 
-## Features
+I have developed this application using atomic design.
 
-- [Vite](https://vitejs.dev/) with [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/) and [absolute imports](https://github.com/aleclarson/vite-tsconfig-paths).
-- Use [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) on VSCode.
-- GitHub Actions for automatic [dependency updates(Renovate)](https://renovatebot.com/), [CodeQL Analysis](https://securitylab.github.com/tools/codeql).
+## Quick Start
 
-<br />
-
-## Getting Started
-
-Use this repository as a [GitHub template](https://github.com/wtchnm/Vitamin/generate) or use [degit](https://github.com/Rich-Harris/degit) to clone to your machine with an empty git history:
-
-```shell
-npx degit altmshfkgudtjr/varsarr#main my-app
 ```
-
-Then, install the dependencies:
-
-```shell
-npm install
-```
-or
-```shell
+git clone https://github.com/Silinde87/podcaster.git
+cd podcaster
 yarn install
+yarn dev
 ```
 
-<br />
+## Available scripts in the application
 
-## Check List
+### yarn install
 
-- [ ] If you don't plan to use GitHub Actions, delete the `.github` folder.
-- [ ] Change the `name` field in package.json.
-- [ ] Modify or delete the `LICENSE` file.
-- [ ] Change the title, description and theme color in the `index.html`.
-- [ ] Change the options in the `vite.config.ts`, `tsconfig.ts` you want.
-- [ ] If you want, Change the `React-Query` options in `src/components/providers`.
-- [ ] Change the global styles in the `lib/GlobalStyles.ts`
+> **Install app dependencies**
 
-<br />
+### yarn dev
 
+> **Runs the app** in the development mode. Open http://localhost:3000 to view it in the browser.
+
+### yarn build
+
+> **Generates a build version ready for deploy**.
+
+### yarn preview
+
+> **Runs the app** in the production mode. Open http://localhost:3000 to view it in the browser.
+
+---
+
+## Stack
+
+| Package                         | Version |
+| ------------------------------- | ------- |
+| React & react-dom               | 18.2.0  |
+| styled-components               | 5.3.5   |
+| react-html-parser               | 2.0.2   |
+| axios                           | 0.27.2  |
+| eslint                          | 8.23.1  |
+| prettier                        | 2.7.1   |
+| typescript                      | 4.8.3   |
+
+## Output
+
+```
+.
+├── README.md
+├── package.json
+├── .gitignore
+├── .eslintrc.js
+├── .prettierrc
+├── public                  # Assets
+└── src                     # React App folder
+    ├── components          # All the components of the application
+    │   ├── atoms           # The smallest components
+    │   └── molecules       # A combination of atoms components
+    ├── providers           # The React Providers for this app.
+    ├── pages               # The pages components
+    ├── services            # The controllers that manage the communication with API
+    ├── theme               # Shared styles or colors
+    ├── utils               # Shared utilites and files such as utils, constants or rules
+    ├── App.tsx
+    └── main.tsx
+```
+
+---
+
+## Author
+
+👤 **Pau Rodríguez**
+
+- Website: https://www.linkedin.com/in/paurodriguezmolina/
+- Github: [@Silinde87](https://github.com/Silinde87)
+- LinkedIn: [@paurodriguezmolina](https://linkedin.com/in/paurodriguezmolina)
+- Twitter: [@Silinde87](https://twitter.com/Silinde87)
+
+## License
+
+[GNU General Public License](https://opensource.org/licenses/gpl-license)
