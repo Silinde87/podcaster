@@ -1,18 +1,29 @@
-import PodcastCard from 'components/molecules/Cards/PodcastCard';
-import Layout from 'components/molecules/Layout';
-import {
-  PodcastDetailWrapper,
-  PodcastListHeader,
-  PodcastListWrapper,
-} from './PodcastDetail.styled';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PodcastService from 'services/Podcast.service';
-import { EStorageItems, PODCASTS_EXPIRE_INTERVAL } from 'utils/constants/storage.constants';
 import Expirestorage from 'utils/functions/Expirestorage';
 import { IPodcastDetail } from 'utils/interfaces/api/podcast_details.interface';
-import Typography, { TypographyTypes } from 'components/atoms/Typography';
+import { EStorageItems, PODCASTS_EXPIRE_INTERVAL } from 'utils/constants/storage.constants';
 import { Colors } from 'theme/Colors';
+import PodcastCard from 'components/molecules/Cards/PodcastCard';
+import Layout from 'components/molecules/Layout';
+import Typography, { TypographyTypes } from 'components/atoms/Typography';
+import TrackList from 'components/molecules/TrackList';
+import {
+  PodcastDetailWrapper,
+  PodcastListSectionContainer,
+  PodcastListWrapper,
+} from './PodcastDetail.styled';
+
+// TODO: Tracks mock.
+const tracks = [
+  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '1' },
+  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '2' },
+  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '3' },
+  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '4' },
+  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '5' },
+  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '6' },
+];
 
 const PodcastDetail = () => {
   const { podcastId } = useParams();
@@ -46,11 +57,14 @@ const PodcastDetail = () => {
         <PodcastDetailWrapper>
           <PodcastCard podcastDetails={podcastDetails} />
           <PodcastListWrapper>
-            <PodcastListHeader>
+            <PodcastListSectionContainer>
               <Typography type={TypographyTypes.H2} color={Colors.gray1000}>
                 Episodes:
               </Typography>
-            </PodcastListHeader>
+            </PodcastListSectionContainer>
+            <PodcastListSectionContainer>
+              <TrackList episodeId={podcastDetails.collectionId} tracks={tracks} />
+            </PodcastListSectionContainer>
           </PodcastListWrapper>
         </PodcastDetailWrapper>
       )}

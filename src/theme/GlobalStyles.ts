@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { Colors } from './Colors';
 
 const GlobalStyles = createGlobalStyle`
 	:root {
@@ -33,6 +34,12 @@ const GlobalStyles = createGlobalStyle`
 		vertical-align: baseline;
 		box-sizing: border-box;
 		text-decoration: none;
+	}
+	a {
+		color: ${Colors.blue400};
+	}
+	a:visited {
+		color: ${Colors.blue800}
 	}
 	/* HTML5 display-role reset for older browsers */
 	article, aside, details, figcaption, figure, 
