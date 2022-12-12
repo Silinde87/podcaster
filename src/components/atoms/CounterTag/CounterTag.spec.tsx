@@ -15,4 +15,12 @@ describe('CounterTag component', () => {
         border-radius: 8px;
     `);
   });
+
+  it('should render a text with a number', () => {
+    const { getByTestId } = render(<CounterTag count={1} />);
+
+    const counter = getByTestId('counter-tag');
+
+    expect(counter).toHaveTextContent(/1/);
+  });
 });
