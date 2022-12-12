@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { PodcastContext } from 'providers/PodcastProvider';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from 'utils/constants/routes.constants';
+import { IPodcast } from 'utils/interfaces/api/podcasts.interface';
 import CounterTag from 'components/atoms/CounterTag';
 import SearchBar from 'components/atoms/SearchBar';
 import HomeCard from 'components/molecules/Cards/HomeCard';
 import Layout from 'components/molecules/Layout';
-import { IPodcast } from 'utils/interfaces/api/podcasts.interface';
 import { HomeWrapper, PodcastsContainer, SearchBarContainer } from './Home.styled';
-import { ROUTES } from 'utils/constants/routes.constants';
 
 const Home: React.FC = () => {
   const { podcasts } = useContext(PodcastContext);
@@ -38,6 +38,7 @@ const Home: React.FC = () => {
         <PodcastsContainer>
           {filteredPodcasts.map(podcast => (
             <HomeCard
+              key={podcast.id.label}
               imageUrl={podcast['im:image'][2].label}
               title={podcast['im:name'].label}
               author={podcast['im:artist'].label}

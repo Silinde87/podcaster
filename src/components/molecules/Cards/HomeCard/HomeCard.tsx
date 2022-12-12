@@ -1,5 +1,3 @@
-import Typography, { TypographyTypes } from 'components/atoms/Typography';
-import React from 'react';
 import { Colors } from 'theme/Colors';
 import {
   HomeCardTextWrapper,
@@ -10,9 +8,9 @@ import {
 } from './HomeCard.styled';
 import { HomeCardProps } from './HomeCard.types';
 
-const HomeCard: React.FC<HomeCardProps> = ({ imageUrl, title, author, onClick }) => {
+const HomeCard: React.FC<HomeCardProps> = ({ imageUrl, title, author, onClick }, props) => {
   return (
-    <HomeCardContainer>
+    <HomeCardContainer {...props}>
       <HomeCardImage src={imageUrl} alt={title} onClick={onClick} />
       <HomeCardTextWrapper onClick={onClick}>
         <HomeCardTitle color={Colors.gray1000}>{title.toUpperCase()}</HomeCardTitle>

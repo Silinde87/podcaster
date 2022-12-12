@@ -38,7 +38,7 @@ const Typography: React.FC<TypographyProps> = props => {
   const Text = Typographys[type];
   return (
     <Text
-      data-testId={dataTestId}
+      data-test-id={dataTestId}
       type={type}
       size={size}
       weight={weight}

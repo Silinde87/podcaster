@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
 		font: inherit;
 		vertical-align: baseline;
 		box-sizing: border-box;
+		text-decoration: none;
 	}
 	/* HTML5 display-role reset for older browsers */
 	article, aside, details, figcaption, figure, 
