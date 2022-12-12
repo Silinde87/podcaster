@@ -3,4 +3,6 @@ export const API = {
   PODCAST_DETAIL: (podcastId: string) => `/lookup?id=${podcastId}`,
 };
 
-export const API_URL = 'https://itunes.apple.com';
+export const API_URL = `https://api.allorigins.win/get?url=${encodeURIComponent(
+  'https://itunes.apple.com',
+)}`;

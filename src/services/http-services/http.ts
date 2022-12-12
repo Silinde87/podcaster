@@ -24,7 +24,7 @@ const httpServices = () => {
       .get(path)
       .then(response => {
         const _response = response as AxiosResponse;
-        return _response.data;
+        return JSON.parse(_response.data.contents);
       })
       .catch(error => {
         console.log(error);
@@ -47,7 +47,7 @@ const httpServices = () => {
       .post(path, options.data)
       .then(response => {
         const _response = response as AxiosResponse;
-        return _response.data;
+        return JSON.parse(_response.data.contents);
       })
       .catch(error => {
         throw error.response.data;
@@ -69,7 +69,7 @@ const httpServices = () => {
       .put(path, options.data)
       .then(response => {
         const _response = response as AxiosResponse;
-        return _response.data;
+        return JSON.parse(_response.data.contents);
       })
       .catch(error => {
         throw error.response.data;
@@ -90,7 +90,7 @@ const httpServices = () => {
       .delete(path)
       .then(response => {
         const _response = response as AxiosResponse;
-        return _response.data;
+        return JSON.parse(_response.data.contents);
       })
       .catch(error => {
         throw error.response.data;
