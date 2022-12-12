@@ -17,7 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <InputWrapper
-      data-test-id={dataTestId}
+      data-testid={dataTestId}
       placeholder={placeholder}
       value={inputValue}
       onChange={handleChange}
