@@ -13,7 +13,6 @@ const PodcastCardContainer = styled.article`
 const PodcastCardImage = styled.img`
   width: 150px;
   height: 150px;
-  align-self: center;
   margin-bottom: 24px;
 `;
 
