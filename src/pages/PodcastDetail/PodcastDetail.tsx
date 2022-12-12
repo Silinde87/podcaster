@@ -51,7 +51,9 @@ const PodcastDetail = () => {
           setPodcastDetails(response.results[0]);
           setLoading(false);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error(`Podcast details with id: ${podcastId} not found`);
+      }
     };
     podcastId && _getPodcastDetails(podcastId);
   }, [podcastId]);

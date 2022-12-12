@@ -51,7 +51,9 @@ const TrackDetail = () => {
           setPodcastDetails(response.results[0]);
           setLoading(false);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error(`Track details from podcast id: ${podcastId} not found`);
+      }
     };
     podcastId && _getPodcastDetails(podcastId);
   }, [podcastId]);

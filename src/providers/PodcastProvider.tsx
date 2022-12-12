@@ -45,7 +45,9 @@ export const PodcastProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
       );
       setPodcasts(response.feed.entry);
       setLoading(false);
-    } catch (error) {}
+    } catch (error) {
+      console.error(`Podcast list not available`)
+    }
   };
   const value = { podcasts, loading, setLoading };
   return <PodcastContext.Provider value={value}>{children}</PodcastContext.Provider>;
