@@ -1,4 +1,4 @@
-# Phone Catalog by Pau Rodríguez
+# Podcaster by Pau Rodríguez
 
 ![](https://img.shields.io/github/deployments/Silinde87/phone-catalog/production?label=Vercel&logo=Vercel&logoColor=white)
 ![](https://img.shields.io/w3c-validation/html?targetUrl=https://phone-catalog-sandy.vercel.app/)
@@ -40,6 +40,10 @@ yarn dev
 ### yarn preview
 
 > **Runs the app** in the production mode. Open http://localhost:3000 to view it in the browser.
+
+### yarn test:unit:ci
+
+> **Launches the unit test runner** (Jest/RTL) in the interactive watch mode.
 
 ---
 

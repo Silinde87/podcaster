@@ -3,4 +3,5 @@ export type HomeCardProps = {
   title: string;
   author: string;
   onClick: () => void;
+  dataTestId?: string;
 };
