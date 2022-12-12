@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { useParams } from 'react-router-dom';
 import PodcastService from 'services/Podcast.service';
+import { PodcastContext } from 'providers/PodcastProvider';
+import { Colors } from 'theme/Colors';
 import Expirestorage from 'utils/functions/Expirestorage';
 import { IPodcastDetail } from 'utils/interfaces/api/podcast_details.interface';
 import { EStorageItems, PODCASTS_EXPIRE_INTERVAL } from 'utils/constants/storage.constants';
@@ -14,8 +16,8 @@ import {
   TrackDetailWrapper,
   Audio,
 } from './TrackDetail.styled';
-import { Colors } from 'theme/Colors';
 
+// TODO: Use definitive track information from endpoint
 const trackDetails = {
   title: 'Wilco - Magnetized',
   description:
@@ -26,12 +28,15 @@ const trackDetails = {
 
 const TrackDetail = () => {
   const { podcastId } = useParams();
+  const { setLoading } = useContext(PodcastContext);
   const [podcastDetails, setPodcastDetails] = useState<IPodcastDetail>();
 
   useEffect(() => {
+    setLoading(true);
     const _getPodcastDetails = async (_podcastId: string) => {
       const storageData = Expirestorage.getItem(EStorageItems.PODCAST_DETAILS + podcastId);
       if (storageData) {
+        setLoading(false);
         setPodcastDetails(JSON.parse(storageData));
         return;
       }
@@ -44,6 +49,7 @@ const TrackDetail = () => {
             PODCASTS_EXPIRE_INTERVAL,
           );
           setPodcastDetails(response.results[0]);
+          setLoading(false);
         }
       } catch (error) {}
     };

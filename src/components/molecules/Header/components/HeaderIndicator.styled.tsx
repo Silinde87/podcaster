@@ -40,7 +40,7 @@ const IndicatorWrapper = styled.div`
 
   & div {
     position: absolute;
-    border: 4px solid ${Colors.blue400};
+    border: 2px solid ${Colors.blue400};
     opacity: 1;
     border-radius: 50%;
     animation: ${ldsRipple} 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;

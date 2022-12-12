@@ -1,3 +1,1 @@
-export type HeaderProps = {
-    loading?: boolean;
-};
+export type HeaderProps = {};

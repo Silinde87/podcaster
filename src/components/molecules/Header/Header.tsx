@@ -5,8 +5,12 @@ import Typography, { TypographyTypes } from 'components/atoms/Typography';
 import { HeaderIndicator } from './components';
 import { HeaderWrapper } from './Header.styled';
 import { HeaderProps } from './Header.types';
+import { useContext } from 'react';
+import { PodcastContext } from 'providers/PodcastProvider';
 
-const Header: React.FC<HeaderProps> = ({ loading }) => {
+const Header: React.FC<HeaderProps> = () => {
+  const { loading } = useContext(PodcastContext);
+
   return (
     <HeaderWrapper>
       <Link to={ROUTES.HOME}>

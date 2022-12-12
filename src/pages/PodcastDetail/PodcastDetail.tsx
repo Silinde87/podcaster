@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PodcastService from 'services/Podcast.service';
 import Expirestorage from 'utils/functions/Expirestorage';
@@ -14,6 +14,7 @@ import {
   PodcastListSectionContainer,
   PodcastListWrapper,
 } from './PodcastDetail.styled';
+import { PodcastContext } from 'providers/PodcastProvider';
 
 // TODO: Tracks mock.
 const tracks = [
@@ -27,12 +28,15 @@ const tracks = [
 
 const PodcastDetail = () => {
   const { podcastId } = useParams();
+  const { setLoading } = useContext(PodcastContext);
   const [podcastDetails, setPodcastDetails] = useState<IPodcastDetail>();
 
   useEffect(() => {
+    setLoading(true);
     const _getPodcastDetails = async (_podcastId: string) => {
       const storageData = Expirestorage.getItem(EStorageItems.PODCAST_DETAILS + podcastId);
       if (storageData) {
+        setLoading(false);
         setPodcastDetails(JSON.parse(storageData));
         return;
       }
@@ -45,6 +49,7 @@ const PodcastDetail = () => {
             PODCASTS_EXPIRE_INTERVAL,
           );
           setPodcastDetails(response.results[0]);
+          setLoading(false);
         }
       } catch (error) {}
     };
