@@ -1,2 +1,2 @@
-export const EpochToDateDDMMYYYY = (epochTime: number) =>
-  new Date(epochTime).toLocaleDateString('es-ES');
+export const stringToDateDDMMYYYY = (stringDate: string) =>
+  new Date(stringDate).toLocaleDateString('es-ES');

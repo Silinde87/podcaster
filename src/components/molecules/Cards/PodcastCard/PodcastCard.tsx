@@ -27,7 +27,7 @@ const PodcastCard: React.FC<PodcastCardProps> = ({ podcastDetails }) => {
   return (
     <PodcastCardContainer>
       <Link to={ROUTES.PODCAST_DETAIL_WITH_PARAM(podcastId)} style={{ alignSelf: 'center' }}>
-        <PodcastCardImage src={podcastDetails.image} />
+        <PodcastCardImage src={podcastDetails['itunes:image']['@_href']} />
       </Link>
       <TitleWrapper>
         <Link to={ROUTES.PODCAST_DETAIL_WITH_PARAM(podcastId)}>

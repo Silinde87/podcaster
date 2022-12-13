@@ -56,11 +56,11 @@ const PodcastDetail = () => {
           <PodcastListWrapper>
             <PodcastListSectionContainer>
               <Typography type={TypographyTypes.H2} color={Colors.gray1000}>
-                Episodes: {podcastDetails.items.length}
+                Episodes: {podcastDetails.item.length}
               </Typography>
             </PodcastListSectionContainer>
             <PodcastListSectionContainer>
-              <TrackList episodeId={podcastDetails.podcastId} tracks={podcastDetails.items} />
+              <TrackList episodeId={podcastDetails.podcastId} tracks={podcastDetails.item} />
             </PodcastListSectionContainer>
           </PodcastListWrapper>
         </PodcastDetailWrapper>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'utils/constants/routes.constants';
-import { EpochToDateDDMMYYYY } from 'utils/functions/DateFormatter';
+import { stringToDateDDMMYYYY } from 'utils/functions/DateFormatter';
+import { secondsToHHMMSS } from 'utils/functions/TimeFormatter';
 import { TH, Table, TD } from './TrackList.styled';
 import { TrackListProps } from './TrackList.types';
 
@@ -17,13 +18,15 @@ const TracksList: React.FC<TrackListProps> = ({ episodeId, tracks }) => {
       </thead>
       <tbody>
         {tracks.map((track, index) => (
-          <tr key={index}>
+          <tr key={track.id}>
             <TD index={index} style={{ paddingLeft: 8 }}>
-              <Link to={ROUTES.TRACK_DETAIL_WITH_PARAM(episodeId, index)}>{track.title}</Link>
+              <Link to={ROUTES.TRACK_DETAIL_WITH_PARAM(episodeId, track.id)}>{track.title}</Link>
             </TD>
-            <TD index={index}>{EpochToDateDDMMYYYY(track.published)}</TD>
+            <TD index={index}>{stringToDateDDMMYYYY(track.pubDate)}</TD>
             <TD index={index} style={{ textAlign: 'center' }}>
-              {track['itunes_duration']}
+              {typeof track['itunes:duration'] === 'number'
+                ? secondsToHHMMSS(track['itunes:duration'])
+                : track['itunes:duration']}
             </TD>
           </tr>
         ))}

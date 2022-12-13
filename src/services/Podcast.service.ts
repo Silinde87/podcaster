@@ -1,8 +1,9 @@
-import { parse } from 'rss-to-json';
 import http from './http-services/http';
 import { API } from 'utils/constants/api.constants';
 import { IPodcastDetails, IPodcastDetailRSS } from 'utils/interfaces/api/podcast_details.interface';
 import { IPodcasts } from 'utils/interfaces/api/podcasts.interface';
+import { XMLParser } from 'fast-xml-parser';
+import axios, { AxiosResponse } from 'axios';
 
 const PodcastService = () => {
   const getPodcasts = async (): Promise<IPodcasts> => {
@@ -22,17 +23,20 @@ const PodcastService = () => {
       .GET({ path: API.PODCAST_DETAIL(podcastId) })
       .then(async response => {
         const _response = response as IPodcastDetails;
-        const rss = (await parse(_response.results[0].feedUrl)) as IPodcastDetailRSS;
-        rss.items = rss.items.map(item => ({
+        const rss = (await axios.get(response.results[0].feedUrl)) as AxiosResponse;
+        const parser = new XMLParser({ ignoreAttributes: false });
+        const details = parser.parse(rss.data).rss.channel as IPodcastDetailRSS;
+        details.item = details.item.map(item => ({
           description: item.description,
           title: item.title,
-          published: item.published,
-          itunes_duration: item.itunes_duration,
-          enclosures: item.enclosures,
+          pubDate: item.pubDate,
+          ['itunes:duration']: item['itunes:duration'],
+          id: typeof item.guid === 'string' ? item.guid : item.guid ? item.guid['#text'] : '',
+          enclosure: item.enclosure,
         }));
-        rss.podcastId = _response.results[0].collectionId;
-        rss.artistName = _response.results[0].artistName;
-        return rss;
+        details.podcastId = _response.results[0].collectionId;
+        details.artistName = _response.results[0].artistName;
+        return details;
       })
       .catch(error => {
         throw error;

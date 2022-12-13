@@ -1,4 +1,4 @@
-import { ITrackDetails } from "./tracks.interface";
+import { ITrackDetails } from './tracks.interface';
 
 export interface IPodcastDetails {
   results: IPodcastDetail[];
@@ -43,11 +43,10 @@ export interface IPodcastDetail {
 export interface IPodcastDetailRSS {
   category: [];
   description: string;
-  image: string;
-  items: ITrackDetails[];
+  ['itunes:image']: { ['@_href']: string };
+  item: ITrackDetails[];
   link: string;
   title: string;
   podcastId: number;
   artistName: string;
 }
-

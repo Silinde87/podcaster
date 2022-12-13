@@ -1,20 +1,16 @@
 export interface ITrackDetails {
-  content?: string;
-  content_encoded?: string;
-  created?: number;
+  ['content:encoded']?: string;
   description: string;
-  enclosures: IAudioTrack[];
-  id?: string;
-  itunes_duration: string;
-  itunes_episodeType?: string;
-  itunes_image?: { href: string };
+  enclosure: { ['@_url']: string };
+  guid?: { ['#text']: string };
+  id: string;
+  ['itunes:duration']: string;
+  ['itunes:episodeType']?: string;
+  ['itunes:explicit']?: boolean;
+  ['itunes:image']?: string;
+  ['itunes:keywords']?: string;
+  ['itunes:subtitle']?: string;
   link?: string;
-  published: number;
+  pubDate: string;
   title: string;
-}
-
-interface IAudioTrack {
-  length: string;
-  type: string;
-  url: string;
 }

@@ -32,7 +32,7 @@ const TrackDetail = () => {
       if (storageData) {
         setLoading(false);
         const _podcastDetails = JSON.parse(storageData) as IPodcastDetailRSS;
-        setTrackDetails(_podcastDetails.items[_episodeId]);
+        setTrackDetails(_podcastDetails.item.find(item => item.id === episodeId));
         setPodcastDetails(_podcastDetails);
         return;
       }
@@ -43,7 +43,7 @@ const TrackDetail = () => {
           JSON.stringify(response),
           PODCASTS_EXPIRE_INTERVAL,
         );
-        setTrackDetails(response.items[_episodeId]);
+        setTrackDetails(response.item.find(item => item.id === episodeId));
         setPodcastDetails(response);
         setLoading(false);
       } catch (error) {
@@ -66,7 +66,7 @@ const TrackDetail = () => {
             <ParsedDescriptionText>
               {ReactHtmlParser(trackDetails?.description)}
             </ParsedDescriptionText>
-            <Audio src={trackDetails.enclosures[0].url} controls></Audio>
+            <Audio src={trackDetails.enclosure['@_url']} controls></Audio>
           </TrackDetailSectionContainer>
         </TrackDetailWrapper>
       )}
