@@ -1,14 +1,14 @@
 export interface ITrackDetails {
-  content: string;
-  content_encoded: string;
-  created: number;
+  content?: string;
+  content_encoded?: string;
+  created?: number;
   description: string;
   enclosures: IAudioTrack[];
-  id: string;
+  id?: string;
   itunes_duration: string;
-  itunes_episodeType: string;
-  itunes_image: { href: string };
-  link: string;
+  itunes_episodeType?: string;
+  itunes_image?: { href: string };
+  link?: string;
   published: number;
   title: string;
 }
