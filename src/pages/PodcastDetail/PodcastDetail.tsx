@@ -22,7 +22,6 @@ const PodcastDetail = () => {
   const [podcastDetails, setPodcastDetails] = useState<IPodcastDetailRSS>();
 
   useEffect(() => {
-    Expirestorage.removeItem(EStorageItems.PODCAST_DETAILS + podcastId);
     setLoading(true);
     const _getPodcastDetails = async (_podcastId: string) => {
       const storageData = Expirestorage.getItem(EStorageItems.PODCAST_DETAILS + podcastId);
@@ -43,7 +42,7 @@ const PodcastDetail = () => {
           setLoading(false);
         }
       } catch (error) {
-        console.error(`Podcast details with id: ${podcastId} not found`);
+        console.error(`Podcast details with id: ${podcastId} not found`, error);
       }
     };
     podcastId && _getPodcastDetails(podcastId);

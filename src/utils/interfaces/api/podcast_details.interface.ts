@@ -1,4 +1,4 @@
-import { TrackDetails } from "./tracks.interface";
+import { ITrackDetails } from "./tracks.interface";
 
 export interface IPodcastDetails {
   results: IPodcastDetail[];
@@ -44,7 +44,7 @@ export interface IPodcastDetailRSS {
   category: [];
   description: string;
   image: string;
-  items: TrackDetails[];
+  items: ITrackDetails[];
   link: string;
   title: string;
   podcastId: number;

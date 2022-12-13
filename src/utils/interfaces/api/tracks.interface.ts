@@ -1,9 +1,9 @@
-export interface TrackDetails {
+export interface ITrackDetails {
   content: string;
   content_encoded: string;
   created: number;
   description: string;
-  enclosures: AudioTrack[];
+  enclosures: IAudioTrack[];
   id: string;
   itunes_duration: string;
   itunes_episodeType: string;
@@ -13,7 +13,7 @@ export interface TrackDetails {
   title: string;
 }
 
-interface AudioTrack {
+interface IAudioTrack {
   length: string;
   type: string;
   url: string;
