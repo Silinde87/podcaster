@@ -1,3 +1,5 @@
+import { ITrackDetails } from './tracks.interface';
+
 export interface IPodcastDetails {
   results: IPodcastDetail[];
   resultCount: number;
@@ -36,4 +38,15 @@ export interface IPodcastDetail {
   artworkUrl600: string;
   genreIds: string[];
   genres: string[];
+}
+
+export interface IPodcastDetailRSS {
+  category: [];
+  description: string;
+  ['itunes:image']: { ['@_href']: string };
+  item: ITrackDetails[];
+  link: string;
+  title: string;
+  podcastId: number;
+  artistName: string;
 }

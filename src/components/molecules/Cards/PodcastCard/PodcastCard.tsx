@@ -15,7 +15,7 @@ import { PodcastCardProps } from './PodcastCard.types';
 const PodcastCard: React.FC<PodcastCardProps> = ({ podcastDetails }) => {
   const { podcasts } = useContext(PodcastContext);
   const [description, setDescription] = useState<string>('');
-  const podcastId = podcastDetails.collectionId.toString();
+  const podcastId = podcastDetails.podcastId.toString();
 
   useEffect(() => {
     const podcast = podcasts.find(podcast => podcast.id.attributes['im:id'] === podcastId);
@@ -27,11 +27,11 @@ const PodcastCard: React.FC<PodcastCardProps> = ({ podcastDetails }) => {
   return (
     <PodcastCardContainer>
       <Link to={ROUTES.PODCAST_DETAIL_WITH_PARAM(podcastId)} style={{ alignSelf: 'center' }}>
-        <PodcastCardImage src={podcastDetails.artworkUrl600} />
+        <PodcastCardImage src={podcastDetails['itunes:image']['@_href']} />
       </Link>
       <TitleWrapper>
         <Link to={ROUTES.PODCAST_DETAIL_WITH_PARAM(podcastId)}>
-          <Typography color={Colors.gray900}>{podcastDetails.collectionName}</Typography>
+          <Typography color={Colors.gray900}>{podcastDetails.title}</Typography>
         </Link>
         <Typography type={TypographyTypes.CAPTION}>by {podcastDetails.artistName}</Typography>
       </TitleWrapper>

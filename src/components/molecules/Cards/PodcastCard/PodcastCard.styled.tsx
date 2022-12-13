@@ -26,6 +26,7 @@ const TitleWrapper = styled.div`
 const DescriptionWrapper = styled.div`
   padding: 12px 0px;
   border-top: 1px solid ${Colors.gray600};
+  overflow: hidden;
 `;
 
 export { PodcastCardContainer, PodcastCardImage, TitleWrapper, DescriptionWrapper };

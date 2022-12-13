@@ -1,6 +1,8 @@
+import { ITrackDetails } from 'utils/interfaces/api/tracks.interface';
+
 export type TrackListProps = {
   episodeId: number;
-  tracks: any; // TODO: Set proper type once tracks mock is removed
+  tracks: ITrackDetails[];
 };
 
 export type TDProps = {

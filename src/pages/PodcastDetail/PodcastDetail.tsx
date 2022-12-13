@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PodcastService from 'services/Podcast.service';
 import Expirestorage from 'utils/functions/Expirestorage';
-import { IPodcastDetail } from 'utils/interfaces/api/podcast_details.interface';
+import { IPodcastDetailRSS } from 'utils/interfaces/api/podcast_details.interface';
 import { EStorageItems, PODCASTS_EXPIRE_INTERVAL } from 'utils/constants/storage.constants';
 import { Colors } from 'theme/Colors';
 import PodcastCard from 'components/molecules/Cards/PodcastCard';
@@ -16,20 +16,10 @@ import {
 } from './PodcastDetail.styled';
 import { PodcastContext } from 'providers/PodcastProvider';
 
-// TODO: Tracks mock.
-const tracks = [
-  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '1' },
-  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '2' },
-  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '3' },
-  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '4' },
-  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '5' },
-  { title: 'Clipping - Work work', date: '18/2/2016', duration: '15:03', id: '6' },
-];
-
 const PodcastDetail = () => {
   const { podcastId } = useParams();
   const { setLoading } = useContext(PodcastContext);
-  const [podcastDetails, setPodcastDetails] = useState<IPodcastDetail>();
+  const [podcastDetails, setPodcastDetails] = useState<IPodcastDetailRSS>();
 
   useEffect(() => {
     setLoading(true);
@@ -42,17 +32,17 @@ const PodcastDetail = () => {
       }
       try {
         const response = await PodcastService.getPodcastDetails(_podcastId);
-        if (response.resultCount > 0) {
+        if (response) {
           Expirestorage.setItem(
             EStorageItems.PODCAST_DETAILS + _podcastId,
-            JSON.stringify(response.results[0]),
+            JSON.stringify(response),
             PODCASTS_EXPIRE_INTERVAL,
           );
-          setPodcastDetails(response.results[0]);
+          setPodcastDetails(response);
           setLoading(false);
         }
       } catch (error) {
-        console.error(`Podcast details with id: ${podcastId} not found`);
+        console.error(`Podcast details with id: ${podcastId} not found`, error);
       }
     };
     podcastId && _getPodcastDetails(podcastId);
@@ -66,11 +56,11 @@ const PodcastDetail = () => {
           <PodcastListWrapper>
             <PodcastListSectionContainer>
               <Typography type={TypographyTypes.H2} color={Colors.gray1000}>
-                Episodes: {tracks.length}
+                Episodes: {podcastDetails.item.length}
               </Typography>
             </PodcastListSectionContainer>
             <PodcastListSectionContainer>
-              <TrackList episodeId={podcastDetails.collectionId} tracks={tracks} />
+              <TrackList episodeId={podcastDetails.podcastId} tracks={podcastDetails.item} />
             </PodcastListSectionContainer>
           </PodcastListWrapper>
         </PodcastDetailWrapper>
