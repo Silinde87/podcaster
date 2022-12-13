@@ -1,8 +1,8 @@
-import { TrackDetails } from 'utils/interfaces/api/tracks.interface';
+import { ITrackDetails } from 'utils/interfaces/api/tracks.interface';
 
 export type TrackListProps = {
   episodeId: number;
-  tracks: TrackDetails[];
+  tracks: ITrackDetails[];
 };
 
 export type TDProps = {
