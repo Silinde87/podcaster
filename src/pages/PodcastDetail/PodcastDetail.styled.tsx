@@ -3,12 +3,17 @@ import { Colors } from 'theme/Colors';
 
 const PodcastDetailWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 32px;
+  gap: 64px;
+  justify-content: center;
+  max-width: 1440px;
+  margin: auto;
 `;
 
 const PodcastListWrapper = styled.div`
-  margin-left: 64px;
-  width: 100%;
+  flex-grow: 1
 `;
 
 const PodcastListSectionContainer = styled.div`

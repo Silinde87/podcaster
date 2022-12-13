@@ -66,7 +66,7 @@ const PodcastDetail = () => {
           <PodcastListWrapper>
             <PodcastListSectionContainer>
               <Typography type={TypographyTypes.H2} color={Colors.gray1000}>
-                Episodes:
+                Episodes: {tracks.length}
               </Typography>
             </PodcastListSectionContainer>
             <PodcastListSectionContainer>

@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Colors } from 'theme/Colors';
 
 const PodcastCardContainer = styled.article`
-  width: 300px;
+  width: 280px;
+  min-width: 280px;
+  height: fit-content;
   padding: 24px;
   border: 1px solid ${Colors.gray600};
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);

@@ -5,7 +5,7 @@ const InputWrapper = styled.input`
   border: none;
   border-radius: 4px;
   padding: 8px 12px;
-  max-width: 300px;
+  width: 100%;
   transition: outline 0.1s;
   font-size: 16px;
   color: ${Colors.gray900};

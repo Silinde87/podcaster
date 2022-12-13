@@ -9,6 +9,8 @@ const HeaderWrapper = styled.div`
   padding-right: 16px;
   padding-bottom: 16px;
   padding-top: 16px;
+  max-width: 1440px;
+  margin: auto;
 `;
 
 export { HeaderWrapper };
