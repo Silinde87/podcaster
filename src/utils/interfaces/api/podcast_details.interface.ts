@@ -1,3 +1,5 @@
+import { TrackDetails } from "./tracks.interface";
+
 export interface IPodcastDetails {
   results: IPodcastDetail[];
   resultCount: number;
@@ -37,3 +39,15 @@ export interface IPodcastDetail {
   genreIds: string[];
   genres: string[];
 }
+
+export interface IPodcastDetailRSS {
+  category: [];
+  description: string;
+  image: string;
+  items: TrackDetails[];
+  link: string;
+  title: string;
+  podcastId: number;
+  artistName: string;
+}
+

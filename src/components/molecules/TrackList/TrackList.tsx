@@ -1,29 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'utils/constants/routes.constants';
+import { EpochToDateDDMMYYYY } from 'utils/functions/DateFormatter';
 import { TH, Table, TD } from './TrackList.styled';
 import { TrackListProps } from './TrackList.types';
 
-// TODO: Set proper tracks keys once tracks mock is removed
 const TracksList: React.FC<TrackListProps> = ({ episodeId, tracks }) => {
   return (
     <Table>
       <thead>
         <tr>
           <TH style={{ width: '80%', paddingLeft: 8 }}>Title</TH>
-          <TH style={{ width: '12%' }}>Date</TH>
-          <TH style={{ width: '8%' }}>Duration</TH>
+          <TH style={{ width: '10%' }}>Date</TH>
+          <TH style={{ width: '10%' }}>Duration</TH>
         </tr>
       </thead>
       <tbody>
-        {tracks.map((val, index) => (
-          <tr key={val.id}>
+        {tracks.map((track, index) => (
+          <tr key={index}>
             <TD index={index} style={{ paddingLeft: 8 }}>
-              <Link to={ROUTES.TRACK_DETAIL_WITH_PARAM(episodeId, val.id)}>{val.title}</Link>
+              <Link to={ROUTES.TRACK_DETAIL_WITH_PARAM(episodeId, index)}>{track.title}</Link>
             </TD>
-            <TD index={index}>{val.date}</TD>
+            <TD index={index}>{EpochToDateDDMMYYYY(track.published)}</TD>
             <TD index={index} style={{ textAlign: 'center' }}>
-              {val.duration}
+              {track['itunes_duration']}
             </TD>
           </tr>
         ))}
