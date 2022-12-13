@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import debounce from 'lodash/debounce';
 import { PodcastContext } from 'providers/PodcastProvider';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/constants/routes.constants';
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
     setFilteredPodcasts(podcasts);
   }, [podcasts]);
 
-  const handleOnChangeSearchBar = (value: string) => {
+  const handleOnChangeSearchBar = debounce((value: string) => {
     const loweredCaseValue = value.toLowerCase();
     const _podcasts = podcasts.filter(
       podcast =>
@@ -26,7 +27,7 @@ const Home: React.FC = () => {
         podcast['im:artist'].label.toLowerCase().includes(loweredCaseValue),
     );
     setFilteredPodcasts(_podcasts);
-  };
+  }, 300);
 
   return (
     <Layout>

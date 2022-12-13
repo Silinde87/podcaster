@@ -17,7 +17,7 @@ import {
   Audio,
 } from './TrackDetail.styled';
 
-// TODO: Use definitive track information from endpoint
+// TODO: Use definitive track information from endpoint once data is available
 const trackDetails = {
   title: 'Wilco - Magnetized',
   description:
